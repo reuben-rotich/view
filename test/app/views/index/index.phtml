@@ -1,0 +1,35 @@
+
+ <p style = "color:green"> Most schools that performed well in the year 2012 had good teachers and they well managed themselves on time.</p>
+<?php
+echo "<h1>Hello!</h1>";
+
+echo $this->tag->linkTo(["signup", "Sign Up Here!", 'class' => 'btn btn-primary']);
+
+if ($users->count() > 0) {
+    ?>
+<p><?php $this->flashSession->output() ?></p>
+    <table id="identity" class="table table-bordered table-hover" >
+        <thead class="thead-light">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tfoot class= "table-bordered">
+        <tr>
+            <td colspan="2">Users total number: <?php echo $users->count(); ?></td>
+        </tr>
+        </tfoot>
+        <tbody class="table-success">
+        <?php foreach ($users as $user) { ?>
+            <tr>
+                <td class="table-primary" ><?php echo $user->id; ?></td>
+                <td class="table-danger"><?php echo $user->name; ?></td>
+                <td class="table-dark "><?php echo $user->email; ?></td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+    <?php
+}
